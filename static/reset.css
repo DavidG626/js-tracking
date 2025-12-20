@@ -1,0 +1,40 @@
+/* Basic reset */
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;  
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  /* DEBUG – remove before production */
+  /* border: salmon solid .5px; */
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Link reset */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
