@@ -1,0 +1,7 @@
+@media (max-width: 600px) {
+  .broken-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+}

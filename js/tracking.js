@@ -1,59 +1,93 @@
-console.log("Practice page loaded");
-
-let signupButton = document.querySelector("#btn-signup");
-let learnButton = document.querySelector("#btn-learn");
-let buyButton = document.querySelector("#btn-buy");
-
-signupButton.addEventListener("click", function() {
-  console.log("Sign Up clicked");
-  dataLayer.push({
-    event: 'button_click',
-    button_name: 'Sign Up',
-});
-});
-
-learnButton.addEventListener("click", function() {
-  console.log("Learn More clicked");
-  dataLayer.push({
-    event: 'button_click',
-    button_name: 'Learn More',
-});
-});
-
-buyButton.addEventListener("click", function() {
-  console.log("Buy Now clicked");
-  dataLayer.push({
-    event: 'button_click',
-    button_name: 'Buy Now',
-  });
-});
-
-let brokenButton = document.querySelector("#btn-broken");
-
-brokenButton.addEventListener("click", function() {
-  console.log("Broken button clicked");
-  dataLayer.push({
-    'event': 'button_click',
-    'button_name': 'Broken'
-  });
-});
+console.log("JS tracking.js loaded");
 
 
+// Section 1 Simple Buttons Start
 
-// Error 1: Typo in selector (btn-brokn instead of btn-broken-1)
-let broken1 = document.querySelector("#btn-brokn-1");
-broken1.addEventListener("click", function() {
-  dataLayer.push({ 'event': 'button_click', 'button_name': 'Broken 1' });
-});
+// Sign Up Button
+let signupButton = document.querySelector("#btn-signup")
+signupButton.addEventListener('click', function() {
+    console.log("Sign Up Clicked");
+    dataLayer.push({
+        event: 'button_click',
+        button_name: 'Sign Up'
+    })
+})
 
-// Error 2: Undefined variable
-let broken2 = document.querySelector("#btn-broken-2");
-broken2.addEventListener("click", function() {
-  dataLayer.push({ 'event': 'button_click', 'button_name': userName });  // userName doesn't exist
-});
+// Learn More Button
+let learnmoreButton = document.querySelector("#btn-learn")
+learnmoreButton.addEventListener('click', function() {
+    console.log("Learn More Button Clicked");
+    dataLayer.push({
+        event: 'button_click',
+        button_name: 'Learn More'
+    })
+})
 
-// Error 3: Missing event name
-let broken3 = document.querySelector("#btn-broken-3");
-broken3.addEventListener("click", function() {
-  dataLayer.push({ 'button_name': 'Broken 3' });  // no 'event' key — GTM won't trigger
-});
+// Buy Button
+let buyButton = document.querySelector("#btn-buy")
+buyButton.addEventListener('click', function() {
+    console.log("Buy Now Button Clicked")
+    dataLayer.push ({
+        event: 'button_click',
+        button_name: 'Buy Now'
+    })
+})
+// Section 1 Simple Buttons End
+
+
+// Section 2 Links Start
+
+// View Pricing Link
+let viewPricingLink = document.querySelector("#link-pricing")
+viewPricingLink.addEventListener('click', function() {
+    console.log("View Pricing Clicked")
+    dataLayer.push ({
+        event: 'link_click',
+        link_name: 'View Pricing'
+    })
+})
+
+// Contact Us Link
+let contactusLink = document.querySelector("#link-contact")
+contactusLink.addEventListener('click', function() {
+    console.log("Contact Us Clicked")
+    dataLayer.push ({
+        event: 'link_click',
+        link_name: 'Contact Us'
+    })
+})
+// Section 2 End
+
+
+// Section 3 Broken Buttons Start 
+
+// Broken Button 1 Missing Event Name
+let missingEvent = document.querySelector('#btn-broken-1')
+missingEvent.addEventListener('click', function(){
+    console.log('Click Me 1')
+    dataLayer.push ({
+        event: '',  
+        button_name: 'btn-broken-3'
+    })
+})
+
+// Broken Button 2 Undefined Variable
+let undefinedVariable = document.querySelector("#btn-broken-2")
+undefineVariable.addEventListener('click', function(){
+    console.log('Click Me 2')
+    dataLayer.push ({
+        event: 'button_click',
+        button_name: 'btn-broken-2'
+    })
+})
+
+// Broken Button 3 Typo
+let typoButton = document.querySelector("#btn-broken-33")
+typoButton.addEventListener('click', function() {
+    console.log('Click Me 3')
+    dataLayer.push ({
+        event: 'button_click',
+        button_name: 'btn-broken-1'
+    })
+})
+
