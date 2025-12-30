@@ -75,7 +75,7 @@ undefineVariable.addEventListener('click', function(){  //But: undefineVariable 
     })
 })
 
-// Button3: Wrong Selector (null error)
+// Button3: Typo In Selector
 let typoButton = document.querySelector('#btn-broken-33') // Bug: should be #btn-broken-3
 
 typoButton.addEventListener('click', function(){
