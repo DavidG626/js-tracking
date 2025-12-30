@@ -38,4 +38,4 @@ The page includes intentional errors for debugging practice:
 
 ## Built For
 
-Interview preparation - demonstrating JavaScript tracking and debugging skills.
+Built to practice real-world event tracking and debugging
