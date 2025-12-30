@@ -68,7 +68,7 @@ if (missingEvent) {
 // Button 2: Undefined Variable (crashes on page load with no if...)
 let undefinedVariable = document.querySelector("#btn-broken-2")
 
-undefineVariable.addEventListener('click', function(){  
+undefineVariable.addEventListener('click', function(){  //But: undefineVariable should be undefinedVariabl. Typo
     dataLayer.push({
         event:'button_click',
         button_name:'Click Me 2'
