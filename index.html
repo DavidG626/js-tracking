@@ -20,41 +20,45 @@
 
   <h1>JS Tracking Examples</h1>
 
-  <!-- Section 1: Simple Buttons -->
+  <!-- Section 1: Simple Buttons Start -->
   <div class="section">
     <h2>Buttons</h2>
     <button id="btn-signup">Sign Up</button>
     <button id="btn-learn">Learn More</button>
     <button id="btn-buy">Buy Now</button>
   </div>
+  <!-- Section 1: Simple Buttons End -->
 
-  <!-- Section 2: Links -->
+  <!-- Section 2: Links Start-->
   <div class="section">
     <h2>Links</h2>
     <a href="#" id="link-pricing">View Pricing</a> | 
     <a href="#" id="link-contact">Contact Us</a>
   </div>
+  <!-- Sectin 2: Links End -->
 
-  <!-- Section 3: Broken Button -->
-   <h1>Common Tracking Failures (Intentional)</h1>
+  <!-- Section 3: Broken Buttons Start-->
+  <h1>Common Tracking Failures</h1>
+  <h2>(With Intentional Errors)</h2>
   <div class="broken-section">
+    
     <div> 
       <h2>Missing Event Name</h2>
-      <button id="btn-broken-1">Click Me 1</button>
+      <button href="#" id="btn-broken-1">Click Me 1</button>
     </div>
 
     <div> 
       <h2>Undefined Variable</h2>
-      <button id="btn-broken-2">Click Me 2</button>
+      <button href="#" id="btn-broken-2">Click Me 2</button>
     </div>
 
-    
     <div> 
       <h2>Typo In Selector</h2>
-      <button id="btn-broken-3">Click Me 3</button>
+      <button href="#" id="btn-broken-3">Click Me 3</button>
     </div>
+
   </div>
-  
+  <!-- Section 3: Broken Buttons End -->
 
   <script src="js/tracking.js"></script>
 </body>

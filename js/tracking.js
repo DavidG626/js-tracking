@@ -1,93 +1,96 @@
-console.log("JS tracking.js loaded");
+// JS Check
+console.log("JS tracking.js loaded")
 
+// GTM Check
+if (typeof dataLayer === 'undefined') {
+    console.error('GTM not loaded, dataLayer is missing')
+}
 
-// Section 1 Simple Buttons Start
-
-// Sign Up Button
-let signupButton = document.querySelector("#btn-signup")
-signupButton.addEventListener('click', function() {
-    console.log("Sign Up Clicked");
-    dataLayer.push({
-        event: 'button_click',
-        button_name: 'Sign Up'
+// Debug Function For Buttons
+function trackButton(selector, buttonName) {
+    let button = document.querySelector(selector)
+    
+    if (!button) {
+        console.warn(`Missing: ${selector}`)
+        return
+    }
+    button.addEventListener('click', function(){
+        dataLayer.push({
+            event: 'button_click',
+            button_name: buttonName
+        })
+        console.log(`Tracked: ${buttonName}`)
     })
-})
+}
 
-// Learn More Button
-let learnmoreButton = document.querySelector("#btn-learn")
-learnmoreButton.addEventListener('click', function() {
-    console.log("Learn More Button Clicked");
-    dataLayer.push({
-        event: 'button_click',
-        button_name: 'Learn More'
+// Debug Function For Links
+function trackLink(selector, linkName) {
+    let link = document.querySelector(selector)
+    
+    if (!link) {
+        console.warn(`Missing: ${selector}`)
+        return
+    }
+
+    link.addEventListener('click', function() {
+        dataLayer.push({
+            event: 'link_click',
+            link_name: linkName
+        })
+        console.log(`Tracked: ${linkName}`)
     })
-})
+}
 
-// Buy Button
-let buyButton = document.querySelector("#btn-buy")
-buyButton.addEventListener('click', function() {
-    console.log("Buy Now Button Clicked")
-    dataLayer.push ({
-        event: 'button_click',
-        button_name: 'Buy Now'
+
+// Section 1: Functions For Buttons With No Errors
+trackButton("#btn-signup", "Sign Up")
+trackButton("#btn-learn", "Learn More")
+trackButton("#btn-buy", "Buy Now")
+
+// Section 2: Functions For Links With No Errors
+trackLink("#link-pricing", "View Pricing")
+trackLink("#link-contact", "Contact Us")
+
+// Section3: Buttons With Errors
+
+// Button 1: Empy Event Name
+let missingEvent = document.querySelector("#btn-broken-1")
+
+if (missingEvent) {
+    missingEvent.addEventListener('click', function() {
+        dataLayer.push({
+            event: '',   // Bug: empty event name
+            button_name: "Click Me 1"
+        })
     })
-})
-// Section 1 Simple Buttons End
+}
 
-
-// Section 2 Links Start
-
-// View Pricing Link
-let viewPricingLink = document.querySelector("#link-pricing")
-viewPricingLink.addEventListener('click', function() {
-    console.log("View Pricing Clicked")
-    dataLayer.push ({
-        event: 'link_click',
-        link_name: 'View Pricing'
-    })
-})
-
-// Contact Us Link
-let contactusLink = document.querySelector("#link-contact")
-contactusLink.addEventListener('click', function() {
-    console.log("Contact Us Clicked")
-    dataLayer.push ({
-        event: 'link_click',
-        link_name: 'Contact Us'
-    })
-})
-// Section 2 End
-
-
-// Section 3 Broken Buttons Start 
-
-// Broken Button 1 Missing Event Name
-let missingEvent = document.querySelector('#btn-broken-1')
-missingEvent.addEventListener('click', function(){
-    console.log('Click Me 1')
-    dataLayer.push ({
-        event: '',  
-        button_name: 'btn-broken-3'
-    })
-})
-
-// Broken Button 2 Undefined Variable
+// Button 2: Undefined Variable (crashes on page load with no if...)
 let undefinedVariable = document.querySelector("#btn-broken-2")
-undefineVariable.addEventListener('click', function(){
-    console.log('Click Me 2')
-    dataLayer.push ({
-        event: 'button_click',
-        button_name: 'btn-broken-2'
+
+undefineVariable.addEventListener('click', function(){  
+    dataLayer.push({
+        event:'button_click',
+        button_name:'Click Me 2'
     })
 })
 
-// Broken Button 3 Typo
-let typoButton = document.querySelector("#btn-broken-33")
-typoButton.addEventListener('click', function() {
-    console.log('Click Me 3')
-    dataLayer.push ({
-        event: 'button_click',
-        button_name: 'btn-broken-1'
+// Button3: Wrong Selector (null error)
+let typoButton = document.querySelector('#btn-broken-33') // Bug: should be #btn-broken-3
+
+typoButton.addEventListener('click', function(){
+    dataLayer.push({
+        event:'button_click',
+        button_name: 'Click Me 3'
     })
 })
+
+
+
+
+
+
+
+
+
 
