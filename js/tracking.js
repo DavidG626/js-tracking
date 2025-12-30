@@ -53,7 +53,7 @@ trackLink("#link-contact", "Contact Us")
 
 // Section3: Buttons With Errors
 
-// Button 1: Empy Event Name
+// Button 1: Empty Event Name
 let missingEvent = document.querySelector("#btn-broken-1")
 
 if (missingEvent) {
