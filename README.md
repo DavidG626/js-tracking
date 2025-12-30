@@ -1,33 +1,41 @@
 # JS Tracking Demo
 
-Practice project for learning JavaScript event tracking with Google Tag Manager.
+A simple event tracking demo using JavaScript and Google Tag Manager.
 
-## What's in here
-
-- Button click tracking
-- Link click tracking  
-- Three broken buttons to practice debugging common errors
-
-## Errors demonstrated
-
-1. **Typo in selector** - JS can't find the element, throws null error
-2. **Undefined variable** - References a variable that doesn't exist
-3. **Missing event name** - Data reaches GTM but no tag fires
-
-## Live demo
-
+## Live Demo
 https://resilient-kheer-c2cbff.netlify.app/
 
-## How to test
+## What It Demonstrates
 
-1. Open the page
-2. Open browser dev tools (Console tab)
-3. Click buttons and watch for errors
-4. Type `dataLayer` in console to see tracked events
+- Button click tracking
+- Link click tracking
+- dataLayer implementation
+- Defensive coding with null checks
+- Common tracking errors and how to debug them
 
-## Built with
+## Files
 
-- HTML
-- CSS
-- JavaScript
-- Google Tag Manager
+- `tracking.js` - Main tracking code with reusable functions
+- `index.html` - Demo page with buttons and links
+
+## How to Test
+
+1. Open the live demo
+2. Open browser console (F12)
+3. Click buttons/links
+4. Watch for tracking logs: `✓ Tracked: Button Name`
+5. Type `dataLayer` in console to see pushed events
+
+## Error Demos
+
+The page includes intentional errors for debugging practice:
+
+| Button | Error Type |
+|--------|------------|
+| Click Me 1 | Empty event name |
+| Click Me 2 | Undefined variable |
+| Click Me 3 | Wrong selector |
+
+## Built For
+
+Interview preparation - demonstrating JavaScript tracking and debugging skills.
