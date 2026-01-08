@@ -8,7 +8,7 @@ if (typeof dataLayer === 'undefined') {
 
 // Debug Function For Buttons
 function trackButton(selector, buttonName) {
-    let button = document.querySelector(selector)
+    const button = document.querySelector(selector)
     
     if (!button) {
         console.warn(`Missing: ${selector}`)
@@ -25,7 +25,7 @@ function trackButton(selector, buttonName) {
 
 // Debug Function For Links
 function trackLink(selector, linkName) {
-    let link = document.querySelector(selector)
+    const link = document.querySelector(selector)
     
     if (!link) {
         console.warn(`Missing: ${selector}`)
@@ -54,7 +54,7 @@ trackLink("#link-contact", "Contact Us")
 // Section3: Buttons With Errors
 
 // Button 1: Empty Event Name
-let missingEvent = document.querySelector("#btn-broken-1")
+const missingEvent = document.querySelector("#btn-broken-1")
 
 if (missingEvent) {
     missingEvent.addEventListener('click', function() {
@@ -66,9 +66,9 @@ if (missingEvent) {
 }
 
 // Button 2: Undefined Variable (crashes on page load with no if...)
-let undefinedVariable = document.querySelector("#btn-broken-2")
+const undefinedVariable = document.querySelector("#btn-broken-2")
 
-undefineVariable.addEventListener('click', function(){  //Bug: undefineVariable should be undefinedVariabl. Typo
+undefineVariable.addEventListener('click', function(){  //Bug: undefineVariable should be undefinedVariable. Typo
     dataLayer.push({
         event:'button_click',
         button_name:'Click Me 2'
@@ -76,7 +76,7 @@ undefineVariable.addEventListener('click', function(){  //Bug: undefineVariable 
 })
 
 // Button3: Typo In Selector
-let typoButton = document.querySelector('#btn-broken-33') // Bug: should be #btn-broken-3
+const typoButton = document.querySelector('#btn-broken-33') // Bug: should be #btn-broken-3
 
 typoButton.addEventListener('click', function(){
     dataLayer.push({
