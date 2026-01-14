@@ -65,7 +65,7 @@ if (missingEvent) {
     })
 }
 
-// Button 2: Undefined Variable (crashes on page load with no if...)
+// Button 2: Undefined Variable + (crashes on page load with no null statement...)
 const undefinedVariable = document.querySelector("#btn-broken-2")
 
 undefineVariable.addEventListener('click', function(){  //Bug: undefineVariable should be undefinedVariable. Typo
@@ -76,7 +76,7 @@ undefineVariable.addEventListener('click', function(){  //Bug: undefineVariable 
 })
 
 // Button3: Typo In Selector
-const typoButton = document.querySelector('#btn-broken-33') // Bug: should be #btn-broken-3
+const typoButton = document.querySelector('#btn-broken-33') // Bug: should be #btn-broken-3 ! 33
 
 typoButton.addEventListener('click', function(){
     dataLayer.push({
